@@ -1,7 +1,8 @@
 <template>
   <div>
-    <input type="text" v-model="auth.username" @keydown.enter="requestItem" />
-    <input type="password" v-model="auth.password" @keydown.enter="requestItem" />
+    <input type="text" v-model="auth.username" @keydown.enter="reqCredential" />
+    <input type="password" v-model="auth.password" @keydown.enter="reqCredential" />
+    <button @click="reqCredential">Login</button>
   </div>
 </template>
 
@@ -23,7 +24,7 @@ export default {
     }
   },
   methods: {
-    async requestItem () {
+    async reqCredential () {
       let cred = await iot.reqCred(this.auth)
       this.$emit('cred', cred)
     }

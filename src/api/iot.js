@@ -42,6 +42,9 @@ export const initWS = async (cred) => {
   return new Promise((resolve, reject) => {
     ws = new WebSocket(`wss://lok-iot.herokuapp.com/?run=1&appID=${cred.appID}&appHash=${cred.appHash}`)
     ws.addEventListener('message', (v) => {
+      if (!ws) {
+        return
+      }
       let data = JSON.parse(v.data)
       console.log(data)
       if (data.checkHeartBeat) {
