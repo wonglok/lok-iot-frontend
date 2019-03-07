@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Login @cred="onCred" v-if="!cred"></Login>
-    <button @click="lit">Lit</button>
+    <button v-if="iot.getWS()" @click="lit">Lit</button>
   </div>
 </template>
 
@@ -16,6 +16,7 @@ export default {
   },
   data () {
     return {
+      iot,
       ws: false,
       cred: false
     }
