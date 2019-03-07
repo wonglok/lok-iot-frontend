@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "backup": "git add .; git commit -am \"github backup\"; git push -u origin master",
+    "deploy": "git add .; git commit -am \"github deploy and CI with netlify\"; git push -u origin master",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
