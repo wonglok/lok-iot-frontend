@@ -1,18 +1,42 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Login @cred="onCred" v-if="!cred"></Login>
+    <button @click="lit">Lit</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Login from '@/components/Login.vue'
+import * as iot from '@/api/iot'
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    Login
+  },
+  data () {
+    return {
+      ws: false,
+      cred: false
+    }
+  },
+  watch: {
+    async cred () {
+      if (this.cred) {
+        this.ws = await iot.initWS(this.cred)
+      }
+    }
+  },
+  methods: {
+    lit () {
+      iot.lit()
+    },
+    onCred (v) {
+      this.cred = v
+    }
   }
 }
 </script>
+
+<style scoped>
+</style>
