@@ -30,6 +30,11 @@ export const reqCred = async (auth) => {
   return cred
 }
 
+export const logout = () => {
+  ws = false
+  window.localStorage.removeItem('cred-ls')
+}
+
 let ws = false
 export const getWS = () => ws
 

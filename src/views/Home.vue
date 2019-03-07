@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <Login @cred="onCred" v-if="!cred"></Login>
+    <Logout @cred="onCred" v-if="cred"></Logout>
     <button v-if="iot.getWS()" @click="lit">Lit</button>
   </div>
 </template>
@@ -8,11 +9,13 @@
 <script>
 // @ is an alias to /src
 import Login from '@/components/Login.vue'
+import Logout from '@/components/Logout.vue'
 import * as iot from '@/api/iot'
 export default {
   name: 'home',
   components: {
-    Login
+    Login,
+    Logout
   },
   data () {
     return {
