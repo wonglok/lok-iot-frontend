@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h2>Lok's Internet of Things (iot)</h2>
     <Login @cred="onCred" v-if="!cred"></Login>
     <Logout @cred="onCred" v-if="cred"></Logout>
     <button v-if="iot.getWS()" @click="lit">Lit</button>
