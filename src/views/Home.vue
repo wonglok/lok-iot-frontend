@@ -3,7 +3,7 @@
     <h2>Lok's Internet of Things (iot)</h2>
     <Login @cred="onCred" v-if="!cred"></Login>
     <Logout @cred="onCred" v-if="cred"></Logout>
-    <button v-if="iot.getWS()" @click="lit">Lit</button>
+    <button v-if="iot.getWS()" @click="lit">Remote Contorl ESP8266 IC from Web.</button>
 
     <button v-if="cred" @click="getClients">Get ClientStatus</button>
     <pre v-if="cred && status">{{status}}</pre>
