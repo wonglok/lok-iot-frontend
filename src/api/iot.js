@@ -5,7 +5,7 @@ export const getBase = () => {
   if (process.env.NODE_ENV === 'production') {
     base = 'https://lok-iot.herokuapp.com'
   }
-  // base = 'https://lok-iot.herokuapp.com'
+  base = 'https://lok-iot.herokuapp.com'
   return base
 }
 

@@ -51,4 +51,7 @@ export default {
 </script>
 
 <style scoped>
+pre{
+  text-align: left;
+}
 </style>
