@@ -5,7 +5,7 @@
     <button v-if="iot.getWS()" @click="lit">Lit</button>
 
     <button v-if="cred" @click="getClients">Get ClientStatus</button>
-    <pre v-if="status">{{status}}</pre>
+    <pre v-if="cred && status">{{status}}</pre>
   </div>
 </template>
 
