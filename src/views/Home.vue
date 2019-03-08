@@ -3,6 +3,9 @@
     <Login @cred="onCred" v-if="!cred"></Login>
     <Logout @cred="onCred" v-if="cred"></Logout>
     <button v-if="iot.getWS()" @click="lit">Lit</button>
+
+    <button v-if="cred" @click="getClients">Get ClientStatus</button>
+    <pre v-if="status">{{status}}</pre>
   </div>
 </template>
 
@@ -21,7 +24,8 @@ export default {
     return {
       iot,
       ws: false,
-      cred: false
+      cred: false,
+      status: false
     }
   },
   watch: {
@@ -32,6 +36,10 @@ export default {
     }
   },
   methods: {
+    async getClients () {
+      let status = await iot.getClientStatus(this.cred)
+      this.status = status
+    },
     lit () {
       iot.lit()
     },

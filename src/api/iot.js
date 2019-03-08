@@ -5,6 +5,7 @@ export const getBase = () => {
   if (process.env.NODE_ENV === 'production') {
     base = 'https://lok-iot.herokuapp.com'
   }
+  // base = 'https://lok-iot.herokuapp.com'
   return base
 }
 
@@ -76,4 +77,19 @@ export const lit = () => {
       lit: Math.random()
     }))
   }
+}
+
+export const getClientStatus = async (cred) => {
+  let base = getBase()
+  let resp = await axios({
+    method: 'post',
+    url: base + '/client-status',
+    headers: {
+      'X-AppID': cred.appID,
+      'X-AppHash': cred.appHash
+    }
+  })
+  let status = resp.data
+
+  return status
 }
