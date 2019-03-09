@@ -42,7 +42,8 @@ export const getWS = () => ws
 export const initWS = async (cred) => {
   return new Promise((resolve, reject) => {
     let origin = encodeURIComponent(window.location.origin)
-    ws = new WebSocket(`wss://lok-iot.herokuapp.com/?run=1&appID=${cred.appID}&appHash=${cred.appHash}&origin=${origin}`)
+    let base = getBase().replace('https://', 'wss://')
+    ws = new WebSocket(`${base}/?run=1&appID=${cred.appID}&appHash=${cred.appHash}&origin=${origin}`)
     ws.addEventListener('message', (v) => {
       if (!ws) {
         return
