@@ -68,14 +68,14 @@ export const initWS = async (cred) => {
   })
 }
 
-export const lit = () => {
+export const lit = (time) => {
   let ws = getWS()
   if (ws && ws.readyState === WebSocket.OPEN) {
     ws.send(JSON.stringify({
       referrer: window.location.origin,
       from: 'FrontEnd',
       room: 'IoT',
-      lit: Math.random()
+      lit: time || Math.random()
     }))
   }
 }

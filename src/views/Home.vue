@@ -6,6 +6,8 @@
     <button v-if="iot.getWS()" @click="lit">Remote Contorl ESP8266 IC from Web.</button>
 
     <button v-if="cred" @click="getClients">Get ClientStatus</button>
+
+    <input type="text" v-model="time">
     <pre v-if="cred && status">{{status}}</pre>
   </div>
 </template>
@@ -26,7 +28,8 @@ export default {
       iot,
       ws: false,
       cred: false,
-      status: false
+      status: false,
+      time: 0.1
     }
   },
   watch: {
@@ -42,7 +45,7 @@ export default {
       this.status = status
     },
     lit () {
-      iot.lit()
+      iot.lit(this.time)
     },
     onCred (v) {
       this.cred = v
