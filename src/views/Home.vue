@@ -3,11 +3,10 @@
     <h2>Lok's Internet of Things (iot)</h2>
     <Login @cred="onCred" v-if="!cred"></Login>
     <Logout @cred="onCred" v-if="cred"></Logout>
-    <button v-if="iot.getWS()" @click="lit">Remote Contorl ESP8266 IC from Web.</button>
+    <button v-if="iot.getWS()" @click="lit">Remote Contorl ESP8266 IC from Web to Lit.</button>
+    Light up how long<input type="text" v-model="time" />
 
     <button v-if="cred" @click="getClients">Get ClientStatus</button>
-
-    <input type="text" v-model="time">
     <pre v-if="cred && status">{{status}}</pre>
   </div>
 </template>
