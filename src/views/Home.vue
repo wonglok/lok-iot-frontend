@@ -32,7 +32,7 @@
       </div>
 
       <div>
-        <Button @click="goStreamLED">StreamLED</Button>
+        <!-- <Button @click="goStreamLED">StreamLED</Button> -->
       </div>
     </div>
 
