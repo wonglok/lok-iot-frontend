@@ -90,8 +90,8 @@ export default {
       time: 0.1,
       ledStrip: {
         numLED: 36,
-        satuate: 1,
-        light: 0.01,
+        satuate: 0.7,
+        light: 0.05,
         timeFactor: 0.005
       }
     }
