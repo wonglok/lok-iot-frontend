@@ -5,6 +5,7 @@ export const getBase = () => {
   if (process.env.NODE_ENV === 'production') {
     base = 'https://lok-iot.herokuapp.com'
   }
+  // override
   base = 'https://lok-iot.herokuapp.com'
   return base
 }
@@ -54,6 +55,7 @@ export const initWS = async (cred) => {
         ws.send(JSON.stringify({
           referrer: window.location.origin,
           from: 'Web',
+          ip: window.location.hostname,
           heartbeat: Math.random()
         }))
       }
@@ -89,6 +91,18 @@ export const runLedStrip = (ledStrip) => {
       from: 'FrontEnd',
       room: 'IoT',
       ledStrip: ledStrip
+    }))
+  }
+}
+
+export const goStreamLED = (streamLED) => {
+  let ws = getWS()
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    ws.send(JSON.stringify({
+      // referrer: window.location.origin,
+      // from: 'FrontEnd',
+      room: 'IoT',
+      streamLED: streamLED
     }))
   }
 }
