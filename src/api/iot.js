@@ -81,6 +81,18 @@ export const lit = (time) => {
   }
 }
 
+export const runLedStrip = (ledStrip) => {
+  let ws = getWS()
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    ws.send(JSON.stringify({
+      referrer: window.location.origin,
+      from: 'FrontEnd',
+      room: 'IoT',
+      ledStrip: ledStrip
+    }))
+  }
+}
+
 export const getClientStatus = async (cred) => {
   let base = getBase()
   let resp = await axios({
