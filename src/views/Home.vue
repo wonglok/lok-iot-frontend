@@ -14,18 +14,18 @@
         <input type="text" v-model="ledStrip.numLED" placeholder="ledStrip.numLED" />
         <br />
         ledStrip.satuate
-        <input type="range" min="0" step="0.000001" max="1.0" @change="runLedStrip" v-model="ledStrip.satuate" placeholder="ledStrip.satuate" />
-        <input type="text" v-model="ledStrip.satuate" placeholder="ledStrip.satuate" />
+        <input type="range" min="0" step="0.000001" max="1.0" @keydown.enter="runLedStrip" v-model="ledStrip.satuate" placeholder="ledStrip.satuate" />
+        <input type="text" v-model="ledStrip.satuate" @keydown.enter="runLedStrip"  placeholder="ledStrip.satuate" />
         <br />
 
         ledStrip.light
-        <input type="text" v-model="ledStrip.light" placeholder="ledStrip.light" />
-        <input type="range" min="0" step="0.000001" max="1.0" @change="runLedStrip" v-model="ledStrip.light" placeholder="ledStrip.light" />
+        <input type="text" v-model="ledStrip.light" @keydown.enter="runLedStrip" placeholder="ledStrip.light" />
+        <input type="range" min="0" step="0.000001" max="1.0" @keydown.enter="runLedStrip" v-model="ledStrip.light" placeholder="ledStrip.light" />
         <br />
 
         ledStrip.timeFactor
-        <input type="range" min="0" step="0.000001" max="0.1" @change="runLedStrip" v-model="ledStrip.timeFactor" placeholder="ledStrip.satuate" />
-        <input type="text" v-model="ledStrip.timeFactor" placeholder="ledStrip.timeFactor" />
+        <input type="range" min="0" step="0.000001" max="0.1" @keydown.enter="runLedStrip" v-model="ledStrip.timeFactor" placeholder="ledStrip.satuate" />
+        <input type="text" v-model="ledStrip.timeFactor" @keydown.enter="runLedStrip"  placeholder="ledStrip.timeFactor" />
         <br />
 
         <button @click="runLedStrip">Lit Strip</button>
